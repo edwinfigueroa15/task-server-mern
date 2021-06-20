@@ -3,17 +3,19 @@ require('dotenv').config({ path : 'variables.env' })
 
 const conectarDB = async () => {
     try {
-        await mongoose.connect('mongodb+srv://root:root@cluster0.nmmg0.mongodb.net/merntasks?retryWrites=true&w=majority', {
-            // useCreateIndex: true,
+        await mongoose.connect(process.env.DB_MONGO, {
+            useCreateIndex: true,
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            // useFindAndModify: false
+            useFindAndModify: false
         })
 
         console.log('Conectado a Mongodb')
 
     } catch (error) {
         console.log("Erro al conectarme a Mongodb")
+        console.log(error)
+        console.log("Fin error db")
         process.exit(1)
     }
 }
