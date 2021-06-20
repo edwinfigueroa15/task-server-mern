@@ -6,7 +6,7 @@ const conectarDB = async () => {
         await mongoose.connect('mongodb+srv://root:root@cluster0.nmmg0.mongodb.net/merntasks?retryWrites=true&w=majority', {
             // useCreateIndex: true,
             useNewUrlParser: true,
-            // useUnifiedTopology: true,
+            useUnifiedTopology: true,
             // useFindAndModify: false
         })
 
