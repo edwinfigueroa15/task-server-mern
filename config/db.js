@@ -10,10 +10,10 @@ const conectarDB = async () => {
             useFindAndModify: false
         })
 
-        console.log('Conectada DB')
+        console.log('Conectado a Mongodb')
 
     } catch (error) {
-        console.log(error)
+        console.log("Erro al conectarme a Mongodb")
         process.exit(1)
     }
 }
