@@ -21,7 +21,7 @@ app.use('/api/proyectos', require('./routes/proyectos'))
 app.use('/api/tareas', require('./routes/tareas'))
 
 // INICIAR SERVIDOR
-const PORT = process.env.PORT || 4000
-app.listen(PORT, () => {
-    console.log(`Server: http://localhost:${PORT}`)
+const port = process.env.port || 4000
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Server: http://localhost:${port}`)
 })
