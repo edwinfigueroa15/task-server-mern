@@ -3,8 +3,6 @@ const Tarea = require('../models/Tarea')
 const { validationResult } = require('express-validator')
 
 exports.obtenerTarea = async (req, res) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    
     const { proyecto } = req.query
 
     try {
@@ -22,8 +20,6 @@ exports.obtenerTarea = async (req, res) => {
 }
 
 exports.crearTarea = async (req, res) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    
     // VALIDAMOS SI LAS VALIDACIONES EL LAS RUTAS SE CUMPLIERON DE LO CONTRARIO RETORNAR EL ERROR
     const errores = validationResult(req)
     if(!errores.isEmpty()){return res.status(400).json({ errores : errores.array() })}
@@ -46,8 +42,6 @@ exports.crearTarea = async (req, res) => {
 }
 
 exports.actualizarTarea = async (req, res) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    
     // VALIDAMOS SI LAS VALIDACIONES EL LAS RUTAS SE CUMPLIERON DE LO CONTRARIO RETORNAR EL ERROR
     const errores = validationResult(req)
     if(!errores.isEmpty()){return res.status(400).json({ errores : errores.array() })}
@@ -76,8 +70,6 @@ exports.actualizarTarea = async (req, res) => {
 
 
 exports.eliminarTarea = async (req, res) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    
     try {
         const { proyecto } = req.query
 
