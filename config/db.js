@@ -1,12 +1,10 @@
 const mongoose = require('mongoose')
 require('dotenv').config({ path : 'variables.env' })
 
-mongoose.set('useFindAndModify', false);
-mongoose.Promise = global.Promise;
 const conectarDB = async () => {
     try {
         await mongoose.connect(process.env.DB_MONGO, {
-            // useCreateIndex: true,
+            useCreateIndex: true,
             useNewUrlParser: true,
             useUnifiedTopology: true
         })
