@@ -4,6 +4,8 @@ const { validationResult } = require('express-validator')
 const jwt = require('jsonwebtoken')
 
 exports.store = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    
     // VALIDAMOS SI LAS VALIDACIONES EL LAS RUTAS SE CUMPLIERON DE LO CONTRARIO RETORNAR EL ERROR
     const errores = validationResult(req)
     if(!errores.isEmpty()){return res.status(400).json({ errores : errores.array() })}

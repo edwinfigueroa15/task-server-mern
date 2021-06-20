@@ -2,6 +2,8 @@ const Proyecto = require('../models/Proyecto')
 const { validationResult } = require('express-validator')
 
 exports.obtenerProyecto = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    
     try {
         const proyectos = await Proyecto.find({ creador : req.usuario.id }).sort({ created_at : -1 })
         res.json(proyectos)
@@ -13,6 +15,8 @@ exports.obtenerProyecto = async (req, res) => {
 }
 
 exports.crearProyecto = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    
     // VALIDAMOS SI LAS VALIDACIONES EL LAS RUTAS SE CUMPLIERON DE LO CONTRARIO RETORNAR EL ERROR
     const errores = validationResult(req)
     if(!errores.isEmpty()){return res.status(400).json({ errores : errores.array() })}
@@ -30,6 +34,8 @@ exports.crearProyecto = async (req, res) => {
 }
 
 exports.actualizarProyecto = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    
     // VALIDAMOS SI LAS VALIDACIONES EL LAS RUTAS SE CUMPLIERON DE LO CONTRARIO RETORNAR EL ERROR
     const errores = validationResult(req)
     if(!errores.isEmpty()){return res.status(400).json({ errores : errores.array() })}
@@ -56,6 +62,8 @@ exports.actualizarProyecto = async (req, res) => {
 
 
 exports.eliminarProyecto = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    
     try {
         let proyecto = await Proyecto.findById(req.params.id)
         if(!proyecto) { return res.status(404).json({ msg : 'Proyecto no encontrado' }) }
