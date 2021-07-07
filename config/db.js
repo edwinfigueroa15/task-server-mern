@@ -4,7 +4,7 @@ require('dotenv').config({ path : 'variables.env' })
 const conectarDB = async () => {
     try {
         await mongoose.connect(process.env.DB_MONGO || 'mongodb+srv://root:root@cluster0.nmmg0.mongodb.net/merntasks', {
-            useCreateIndex: true,
+            // useCreateIndex: true,
             useNewUrlParser: true,
             useUnifiedTopology: true
         })
